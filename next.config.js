@@ -12,7 +12,7 @@ module.exports = {
         pathname: '**',
       },
     ],
-    unoptimized: true, // ← disable image optimization
+    unoptimized: true, 
   },
   typescript: {
     ignoreBuildErrors: true,
