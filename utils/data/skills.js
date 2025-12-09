@@ -1,0 +1,21 @@
+export const skillsData = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Next JS",
+  "Redux Toolkit",
+  "React Router",
+  "Context API",
+  "Bootstrap",
+  "MaterialUI",
+  "MDB",
+  "PrimeReact",
+  "Tailwind",
+  "Git",
+  "Firebase",
+  "Webpack",
+  "Parcel",
+  "Babel"
+];
