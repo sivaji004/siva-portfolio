@@ -1,29 +1,38 @@
 import axios from "axios";
 import { NextResponse } from "next/server";
 
-export async function POST(request) {
-  const reqBody = await request.json();
-  const secret_key = process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY;
-
+// API Route to verify reCAPTCHA
+export async function POST(req) {
   try {
-    const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secret_key}&response=${reqBody.token}`;
+    // Parse the request body for the reCAPTCHA token
+    const { token } = await req.json();
 
-    const res = await axios.post(url);
-    if (res.data.success) {
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY; // Set this in your environment variables
+
+    // Send the token to Google reCAPTCHA verification API
+    const result = await axios.post(`https://www.google.com/recaptcha/api/siteverify`, null, {
+      params: {
+        secret: secretKey,
+        response: token,
+      },
+    });
+
+    if (result.data.success) {
       return NextResponse.json({
-        message: "Captcha verification success!!",
         success: true,
-      })
-    };
+        message: "reCAPTCHA verification successful!",
+      });
+    }
 
     return NextResponse.json({
-      error: "Captcha verification failed!",
       success: false,
-    }, { status: 500 });
+      message: "reCAPTCHA verification failed!",
+    }, { status: 400 });
   } catch (error) {
+    console.error("Error verifying reCAPTCHA:", error.message);
     return NextResponse.json({
-      error: "Captcha verification failed!",
       success: false,
+      message: "reCAPTCHA verification failed!",
     }, { status: 500 });
   }
-};
+}
