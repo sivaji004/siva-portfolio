@@ -23,7 +23,7 @@ function AboutSection() {
           </p>
         </div>
         <div className="flex justify-center order-1 lg:order-2">
-          <Image
+          <img
             src={personalData.profile}
             width={280}
             height={280}

@@ -9,7 +9,7 @@ import GlowCard from "../../helper/glow-card";
 function Education() {
   return (
     <div id="education" className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]">
-      <Image
+      <img
         src="/section.svg"
         alt="Hero"
         width={1572}
@@ -46,7 +46,7 @@ function Education() {
                 educations.map(education => (
                   <GlowCard key={education.id} identifier={`education-${education.id}`}>
                     <div className="p-3 relative text-white">
-                      <Image
+                      <img
                         src="/blur-23.svg"
                         alt="Hero"
                         width={1080}

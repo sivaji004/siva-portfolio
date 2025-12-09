@@ -40,7 +40,7 @@ const SingleProject = ({ project }) => {
           {name}
         </h2>
         <div className="p-6">
-          <Image
+          <img
             src={image ? image?.src : placeholder}
             alt={name}
             width={1080}
