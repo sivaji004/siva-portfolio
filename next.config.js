@@ -1,4 +1,5 @@
-// next.config.js
+const path = require('path');
+
 module.exports = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
@@ -11,11 +12,12 @@ module.exports = {
         pathname: '**',
       },
     ],
+    unoptimized: true, // ← disable image optimization
   },
   typescript: {
     ignoreBuildErrors: true,
   },
-  output: "export",
+  // output: "export",
   trailingSlash: true,
   reactStrictMode: false,
 };
